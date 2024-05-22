@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Upload File</title>
+</head>
+<body>
+    <h2>Upload CSV or Excel File</h2>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Upload</button>
+    </form>
+
+    <!-- Add a link to open the uploaded file -->
+    {% if file_name %}
+        <a href="{% url 'open_file' file_name %}">Open Uploaded File</a>
+    {% endif %}
+</body>
+</html>
